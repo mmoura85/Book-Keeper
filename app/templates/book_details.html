@@ -1,0 +1,46 @@
+{% extends  "base.html" %}
+
+{% block content %}
+
+<div>
+
+    <div>
+        <img src="">
+    </div>
+    <div>
+
+        <form method="post" name="book_detail">
+            {{ form.hidden_tag() }}
+
+            {{ form.title.label() }}
+            {{ form.title() }}
+            {{ form.year.label() }}
+            {{ form.year() }}
+            {{ form.page_count.label() }}
+            {{ form.page_count() }}
+            {{ form.authors.label() }}
+            {{ form.authors() }}
+            {{ form.publishers.label() }}
+            {{ form.publishers() }}
+            {{ form.isbn_lookup.label() }}
+            {{ form.isbn_lookup() }}
+            {{ form.dewey_normal.label() }}
+            {{ form.dewey_normal() }}
+            {{ form.dewey_decimal.label() }}
+            {{ form.dewey_decimal() }}
+
+            {{ form.author_selection.label() }}
+            {{ form.author_selection() }}
+
+            {{ form.publisher_selection.label() }}
+            {{ form.publisher_selection() }}
+
+            {{ form.isbn_selection.label() }}
+            {{ form.isbn_selection() }}
+
+            {{ form.save() }}
+        </form>
+    </div>
+</div>
+
+{% endblock %}

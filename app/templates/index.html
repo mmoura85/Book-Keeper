@@ -1,0 +1,29 @@
+{% extends  "base.html" %}
+{% set row_count = 5 %}
+
+{% block content %}
+
+    <div>
+        {% for row in book_list %}
+        
+            <div>
+                {{ row.book_id }}
+                <img src="">
+                {{ row.title }}
+                {{ row.year }}
+            </div>
+
+            {% if(loop.index ==  row_count ): %}
+    </div>
+                {% set row_count = row_count + 3 %}
+
+                {% if(not loop.last): %}
+    <div>
+                {% endif %}
+            {% endif %}
+
+        {% endfor %}
+
+        
+
+{% endblock %}
