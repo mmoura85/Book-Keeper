@@ -1,0 +1,20 @@
+{% macro display_non_form_text(label_name, field_name, value=None) %}
+
+    <div class="form-group">
+        <label for="{{ field_name }}" class="control-label col-sm-3">{{ label_name }}</label>
+        <div class="col-sm-9">
+            <p id="{{ field_name }}">
+                {% if value != None %}
+                    {{ value }}
+                {% else %}
+                    &nbsp
+                {% endif %}
+            </p>
+        </div>
+    </div>
+
+{% endmacro %}
+
+
+
+                
