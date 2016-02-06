@@ -2,23 +2,24 @@
 {% set row_count = 5 %}
 
 {% block content %}
-
-    <div>
+    <div  class="row-blocks">
         {% for row in book_list %}
-        
-            <div>
-                {{ row.book_id }}
-                <img src="">
-                {{ row.title }}
-                {{ row.year }}
+            <div class="row-item">
+                <div>
+                    <a href="{{ url_for('Book_Details', book_id=row.book_id) }}">
+                        <img width="120px" height="120px" src="{{ url_for('static', filename = 'images/120px-No_image_avail.png') }}">
+                    </a>
+                    <p>{{ row.title }}</p>
+                    <!-- <p>{{ row.year }}</p> --?
+                </div>
             </div>
-
+            
             {% if(loop.index ==  row_count ): %}
     </div>
-                {% set row_count = row_count + 3 %}
+                {% set row_count = row_count + 5 %}
 
                 {% if(not loop.last): %}
-    <div>
+    <div class="row-blocks">
                 {% endif %}
             {% endif %}
 
