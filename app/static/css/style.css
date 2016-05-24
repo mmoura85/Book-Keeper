@@ -13,11 +13,12 @@ html body {
 }
 
 #wrapper {
-
     width: 100%;
     min-height: 100%;
     position:relative; /* needed for footer positioning*/
     height: 100%;
+    margin: 0px;
+    padding: 0px;
 }
 
 header{
@@ -28,7 +29,22 @@ header{
     position: relative;
 }
 
+header .left{
+    padding-left: 30px;
+    float: left;
+    height: 100%;
+    width: 100x;
+}
+
+header .right{
+    padding-left: 30px;
+    float: left;
+    height: 100%;
+    width: 400px
+}
+
 footer{
+
     /*background-color: #2f2f2f;    */
     position:fixed;
     bottom:0;
@@ -36,10 +52,18 @@ footer{
     height:40px;
 }
 
-#content{
-    width: 70%;
+.centre-content{
+    width: 80%;
     margin: 0 auto;
-    padding: 50px;
+}
+
+.content{
+    margin: 0px;
+    padding: 0px;
+    width: 100%;/*
+    min-height: 82vh;
+    max-height: 82vh;*/
+    padding-bottom: 5px;
 }
 
 .float-left{
@@ -50,29 +74,40 @@ footer{
     float: right;
 }
 
-# index
+/*# index*/
 
 .row-blocks{
-    float: left;
+    display: -webkit-flex; /* Safari */
+    display: flex;
+    -webkit-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+    -webkit-align-items: stretch; /* Safari */
+    align-items:         stretch;
+    padding-top: 5px;
+    padding-bottom: 5px;
     width: 100%;
-    height: 250px;
-    height: auto;
-    position: relative;
-    overflow: auto;
+    height: 180px;
 }
 
 .row-item{
-    display: inline-block;
-    min-height: 200px;
-    height: auto;
-    width: 150px;
+    margin-left: 2px;
+    margin-right: 2px;
+    width: 200px;
+    border: 3px solid #000000;
+    color: #000000;
+    font-size: 11px;
+    /*background-color: #edeff1;*/
+    height: 100%;
+ /*margin: 0 auto;*/
 }
 
-.row-item > div{
-    display: block;
-    height: 120px;
+.row-item  div{
+    /*display: block;*/
+    height: 150px;
     width: 120px;
     margin: 0 auto;
+    margin-top: 10px;
 }
 
 
@@ -88,7 +123,7 @@ footer{
 
 .bd-content-options{
     width: 100%;
-    height: 80px;
+    height: 30px;
     text-align: right;
 }
 
