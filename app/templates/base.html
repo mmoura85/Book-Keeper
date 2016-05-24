@@ -20,19 +20,25 @@
     </head>
 
     <body>
-        <header>
-            <img src="">
-            <h1>Book Keeper</h1>
-        </header>
-
         <div id="wrapper">
-            <div id="content">
-                {% block content %}
-                {% endblock %}
-            </div>
-        </div>
+            <header>
+                <img src="" class="left">
+                <h1 class="right">Book Keeper</h1>
+            </header>
 
-        <footer></footer>
+            
+            <div class="centre-content">
+                <div class="content">
+                    {% block content %}
+                    {% endblock %}
+                </div>
+            </div>
+            
+
+            <footer>
+                
+            </footer>
+        </div>
     </body>
 
 </html>

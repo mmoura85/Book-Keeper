@@ -10,7 +10,6 @@
                         <img width="120px" height="120px" src="{{ url_for('static', filename = 'images/120px-No_image_avail.png') }}">
                     </a>
                     <p>{{ row.title }}</p>
-                    <!-- <p>{{ row.year }}</p> --?
                 </div>
             </div>
             
@@ -22,9 +21,11 @@
     <div class="row-blocks">
                 {% endif %}
             {% endif %}
+            
+            {% if(loop.last) %}
+    </div>
+            {% endif %}
 
         {% endfor %}
-
-        
 
 {% endblock %}

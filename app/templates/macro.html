@@ -15,6 +15,15 @@
 
 {% endmacro %}
 
-
-
+{% macro display_list_items(field_name, value=None) %}
+    <div class="col-sm-9">
+        <p id="{{ field_name }}">
+            {% if value != None %}
+                    {{ value }}
+                {% else %}
+                    &nbsp
+            {% endif %}
+        </p>
+    </div>
+{% endmacro %}
                 
