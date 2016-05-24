@@ -1,0 +1,93 @@
+{% extends  "base.html" %}
+
+{% block content %}
+
+<div class=".bd-content">
+
+    <div class="float-left bd-content-left">
+        <img class="bd-center-image" width="250px" height="250px" src="{{ url_for('static', filename = 'images/200px-No_image_avail.png') }}">
+    </div>
+
+    <div class="float-right bd-content-right">
+        <div class="bd-center-form">
+            <form class="form-horizontal" method="post" name="book_detail">
+                {{ form.hidden_tag() }}
+                <input type="text" id="test" value="">
+                <div class="form-group">
+                    {{ form.title.label(class="control-label col-sm-2") }}
+                    <div class="col-sm-10">
+                        {{ form.title(class="form-control") }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.year.label(class="control-label col-sm-2") }}
+                    <div class="col-sm-10">
+                        {{ form.year(class="form-control") }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.page_count.label(class="control-label col-sm-2") }}
+                    <div class="col-sm-10">
+                        {{ form.page_count(class="form-control") }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.authors.label(class="control-label col-sm-2") }}
+                    <div class="col-sm-10">
+                        {{ form.authors(class="form-control") }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.publishers.label(class="control-label col-sm-2") }}
+                    <div class="col-sm-10">
+                        {{ form.publishers(class="form-control") }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.isbn_lookup.label(class="control-label col-sm-2") }}
+                    <div class="col-sm-10">
+                        {{ form.isbn_lookup(class="form-control") }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.dewey_normal.label(class="control-label col-sm-2") }}
+                    <div class="col-sm-10">
+                        {{ form.dewey_normal(class="form-control") }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.dewey_decimal.label(class="control-label col-sm-2") }}
+                    <div class="col-sm-10">
+                        {{ form.dewey_decimal(class="form-control") }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.author_selection.label(class="control-label col-sm-2") }}
+                    <div class="col-sm-10">
+                        {{ form.author_selection(class="form-control") }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.publisher_selection.label(class="control-label col-sm-2") }}
+                    <div class="col-sm-10">
+                        {{ form.publisher_selection(class="form-control") }}
+                    </div>
+                </div>
+                <div class="form-group">
+                    {{ form.isbn_selection.label(class="control-label col-sm-2") }}
+                    <div class="col-sm-10">
+                        {{ form.isbn_selection(class="form-control") }}
+                    </div>
+                </div>
+
+                <div class="form-group"> 
+                    <div class="col-sm-offset-2 col-sm-10">
+                        {{ form.save(class="btn btn-primary btn-sm") }}
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock %}
