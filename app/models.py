@@ -104,6 +104,9 @@ class CRUD():
             return {'msg': e,
                     'code': 500}
 
+    def add_record(self):
+        pass
+
 
 class BookIsbn(db.Model):
     __tablename__ = 'book_isbn'
@@ -112,7 +115,7 @@ class BookIsbn(db.Model):
     isbn_type_id = db.Column(db.Integer, db.ForeignKey('isbn_type.isbn_type_id'), primary_key=True)
     value = db.Column(db.VARCHAR(30))
     book = db.relationship('Book')
-    isbn_type = db.relationship('IsbnType')
+    isbn_type = db.relationship('IsbnType', backref='book_isbn')
 
 
 class IsbnType(db.Model, CRUD):
@@ -315,12 +318,38 @@ class Book(db.Model, CRUD):
 
     sqlite_autoincrement = True
 
-    def add_record(self, book_obj):
-        raise NotImplemented()
+    def add(self, book_obj):
+        try:
+            result = self.retrieve()
+            if result:
+                # isbn_values = BookIsbn(book_obj['isbn'][0])
+                # book = Book(Book.title=book_obj['title'], Book.page_count=book_obj['page_count'])
+                book = Book(title=book_obj['title'], page_count=book_obj['page_count'])
+                author = Author().retrieve(1)
+                book.author.append(author)
+                book._add(book)
+                return {'code': 200,
+                        'msg': '{0} added'.format(str(self.__class__.__name__)),
+                        'data': book.book_id}
+            else:
+                return {'code': 500,
+                        'msg': '{0} already exists'.format(str(self.__class__.__name__))}
+        except SQLAlchemyError as e:
+            db.session.rollback()
+            return {'msg': e,
+                    'code': 500}
 
     @staticmethod
     def search():
         raise NotImplemented()
+        # try:
+        #     pass
+
+        # except SQLAlchemyError as e:
+        #     print(e)
+        #     db.session.rollback()
+        #     return {'msg': e,
+        #             'code': 500}
 
     def update(self):
         raise NotImplemented()
